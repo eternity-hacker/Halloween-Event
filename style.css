@@ -4,10 +4,21 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+}
+
 body {
   background-color: #d35400;
   height: 100vh;
   border-image: url("/images/candy-corn.jpg") 20 / 45px;
+  background-image: url("/images/casper-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: "foto";
 }
 
 header {
@@ -23,4 +34,66 @@ main {
   width: calc(100% - 90px);
   margin: auto;
   padding: 10px;
+}
+
+main section#dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+/* targets label */
+#fear-meter-box :first-child {
+  display: block;
+  width: 165px;
+  text-align: center;
+}
+
+/* targets progress bar */
+#fear-meter-box :last-child {
+  display: block;
+  height: 24px;
+  background-color: white;
+}
+
+.fa-snapchat::before {
+  font-size: 1.5em;
+  color: whitesmoke;
+}
+
+.fa-ghost::before {
+  font-size: 1.5em;
+}
+
+#ghost-counter-box i {
+  width: 24px;
+  margin: 5px;
+}
+
+#start-reset-buttons button {
+  width: 120px;
+  border: whitesmoke;
+  height: 1.5em;
+  background: rgb(29, 30, 34);
+  background: linear-gradient(
+    90deg,
+    rgba(29, 30, 34, 1) 0%,
+    rgba(173, 28, 11, 1) 88%
+  );
+  color: whitesmoke;
+
+  font-weight: bold;
+}
+
+#doors-container {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  justify-content: space-evenly;
+  max-width: 890px;
+  margin: auto;
+}
+
+.door {
+  flex-basis: 150px;
+  flex-shrink: 0;
+  height: 200px;
 }
