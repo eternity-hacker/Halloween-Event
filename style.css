@@ -14,7 +14,8 @@ body {
   border-image: url("/images/candy-corn.jpg") 20 / 45px;
   background-image: url("/images/casper-background.png");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
+  background-size: 40%;
 }
 
 h1 {
@@ -90,6 +91,10 @@ main section#dashboard {
   justify-content: space-evenly;
   max-width: 890px;
   margin: auto;
+}
+
+#doors-container img {
+  height: 214px;
 }
 
 .door {
