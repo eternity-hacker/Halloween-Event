@@ -4,7 +4,6 @@ let playerChances = 3;
 let playerStrikes = 0;
 let scaryGhostCounter = 0;
 let friendlyGhostCounter = 0;
-
 // Keeps track of how many doors the player has opened.
 let doorsClicked = 0;
 const ghosts = [
@@ -21,9 +20,9 @@ const ghosts = [
 ];
 
 const doorsContainer = document.querySelector("#doors-container");
-const fearMeter = document.querySelector("#fear-meter");
 const spanFriendly = document.querySelector(".friendly");
 const spanScary = document.querySelector(".scary");
+const fearBar = document.querySelectorAll(".fear-bar");
 
 doorsContainer.addEventListener("click", function (event) {
   let randomNumber = Math.floor(Math.random() * 10);
@@ -31,7 +30,7 @@ doorsContainer.addEventListener("click", function (event) {
   // opens the door
   event.target.src = "images/opened-door.png";
 
-  // injects an the ghost()
+  // injects the ghost
   event.target.insertAdjacentHTML(
     "afterend",
     `<img class="ghost" src="images/${ghosts[randomNumber]}.png" alt="closed door">`
@@ -43,6 +42,7 @@ doorsContainer.addEventListener("click", function (event) {
     ghosts[randomNumber] === "scary-ghost-2"
   ) {
     playerStrikes++;
+    fearBar[scaryGhostCounter].style.background = "red";
     scaryGhostCounter++;
     spanScary.textContent = scaryGhostCounter;
 
@@ -50,7 +50,6 @@ doorsContainer.addEventListener("click", function (event) {
     if (playerStrikes === 2) {
       playerStrikes = 0;
       playerChances--;
-      fearMeter.value++;
     }
 
     console.log(`the current player strikes ${playerStrikes}`);
