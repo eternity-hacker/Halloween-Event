@@ -18,18 +18,24 @@ const ghosts = [
   "casper",
   "casper",
 ];
-
+const body = document.querySelector("body");
+const dashboard = document.querySelector("#dashboard");
 const doorsContainer = document.querySelector("#doors-container");
 const spanFriendly = document.querySelector(".friendly");
 const spanScary = document.querySelector(".scary");
 const fearBar = document.querySelectorAll(".fear-bar");
 
+//global scope functions
+function displayResults() {
+  //hide the sections in main element: dashboard and doors container.
+  dashboard.style.display = "none";
+  doorsContainer.style.display = "none";
+  body.style.backgroundImage = "none";
+}
 doorsContainer.addEventListener("click", function (event) {
   let randomNumber = Math.floor(Math.random() * 10);
-
   // opens the door
   event.target.src = "images/opened-door.png";
-
   // injects the ghost
   event.target.insertAdjacentHTML(
     "afterend",
@@ -51,12 +57,17 @@ doorsContainer.addEventListener("click", function (event) {
       playerStrikes = 0;
       playerChances--;
     }
-
-    console.log(`the current player strikes ${playerStrikes}`);
-    console.log(`you have ${playerChances} chances remaining`);
+    // checks if player got game over
+    if (playerChances === 0) {
+      //display the game over screen
+    }
   } else {
     friendlyGhostCounter++;
     spanFriendly.textContent = friendlyGhostCounter;
+
+    if (friendlyGhostCounter === 4) {
+      console.log("winner");
+    }
   }
 
   // check players strikes
