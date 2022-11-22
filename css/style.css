@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Alegreya Bold";
+  src: url("../fonts/AlegreyaSansSC-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Alegreya Light";
+  src: url("../fonts/AlegreyaSans-Light.ttf");
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -130,4 +140,63 @@ img.ghost {
 
 #results-container {
   height: 100%;
+}
+
+#results-container.gameover {
+  background-color: #b33939;
+}
+
+#results-container.winner {
+  background-color: #2e86de;
+}
+
+#heading-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+#heading-box h2 {
+  font-size: 4em;
+  font-weight: bold;
+  font-family: "Alegreya Bold";
+  color: rgba(173, 28, 11, 1);
+}
+
+#heading-box h2.gameover {
+  color: #ff5252;
+}
+
+#heading-box h2.winner {
+  color: #feca57;
+}
+
+#heading-box p {
+  font-size: 1.5em;
+  font-family: "Alegreya Light";
+  color: whitesmoke;
+  max-width: 675px;
+  text-align: center;
+}
+
+#reaper-box {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+}
+
+#reaper-box.gameover {
+  background-image: url("../images/pumpkin-overlay.png");
+}
+
+#reaper-box.winner {
+  background-image: url("../images/beach-overlay.png");
+  background-size: 100% 100%;
+}
+
+#reaper-box img {
+  height: 300px;
+  width: 350px;
 }
